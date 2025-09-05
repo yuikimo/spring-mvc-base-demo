@@ -97,3 +97,109 @@ public class DemoControllerAdvice {
         return o;
     }
 ```
+
+参数解析器
+解析器	说明
+@PathVariable	路径获取参数
+@CookieValue	从cookie中获取参数
+@RequestHeader	从请求头中获取参数
+@RequestParam	获取参数
+MultipartFile	文件
+@RequestBody	json
+@HttpServletRequest	HttpServletRequest
+@HttpServletResponse	HttpServletResponse
+@PathVariable
+```
+@GetMapping("/order/{id}")
+    public String path(@PathVariable String id){
+        
+    }
+    @GetMapping("/order/{id}/{name}")
+    public String path(@PathVariable("id") String id,@PathVariable String name){
+
+    }
+    @GetMapping("/order/{id}/{name}")
+    public String path(@PathVariable Map map){
+
+    }
+```
+```
+@CookieValue
+  @GetMapping("/order/get")
+    public String get(@CookieValue String name){
+        
+    }
+
+    @GetMapping("/order/get")
+    public String get(@CookieValue("token") String name){
+
+    }
+```
+```
+@RequestHeader
+@GetMapping("/order/header")
+    public String get(@RequestHeader String name){
+        
+    }
+
+    @GetMapping("/order/header")
+    public String get(@RequestHeader Map map){
+
+    }
+```
+```
+@RequestParam
+@GetMapping("/order/par")
+    public String par(@RequestParam String name,Integer age){
+
+    }
+
+    @GetMapping("/order/par")
+    public String par(User user){
+
+    }
+```
+```
+MultipartFile
+@GetMapping("/order/file")
+    public String file(List<MultipartFile> file,MultipartFile[] files,Collection<MultipartFile> files,MultipartFile file){
+
+    }
+@RequestBody
+@GetMapping("/order")
+    public String file(@RequestBody User user){
+
+    }
+```
+HttpServletRequest
+@GetMapping("/order/request")
+    public String file(HttpServletRequest request){
+
+    }
+HttpServletResponse
+ @GetMapping("/order/request")
+    public String file(HttpServletResponse response){
+
+    }
+```
+可在映射器中支持的参数
+
+以上所有参数
+
+可在异常解析器上支持的参数
+``
+1.异常类
+
+2.HttpServletRequest
+
+3.HttpServletResponse
+
+4.HandlerMethod
+``
+返回值处理器
+``
+@ResponseBody 方法级别
+
+@RestController 类级别
+``
+只支持返回json 主要核心功能需要
