@@ -100,6 +100,7 @@ public class DemoControllerAdvice {
 
 参数解析器
 解析器	说明
+``
 @PathVariable	路径获取参数
 @CookieValue	从cookie中获取参数
 @RequestHeader	从请求头中获取参数
@@ -108,6 +109,7 @@ MultipartFile	文件
 @RequestBody	json
 @HttpServletRequest	HttpServletRequest
 @HttpServletResponse	HttpServletResponse
+``
 @PathVariable
 ```
 @GetMapping("/order/{id}")
@@ -123,8 +125,8 @@ MultipartFile	文件
 
     }
 ```
-```
 @CookieValue
+```
   @GetMapping("/order/get")
     public String get(@CookieValue String name){
         
@@ -135,8 +137,8 @@ MultipartFile	文件
 
     }
 ```
-```
 @RequestHeader
+```
 @GetMapping("/order/header")
     public String get(@RequestHeader String name){
         
@@ -147,8 +149,8 @@ MultipartFile	文件
 
     }
 ```
-```
 @RequestParam
+```
 @GetMapping("/order/par")
     public String par(@RequestParam String name,Integer age){
 
@@ -159,8 +161,9 @@ MultipartFile	文件
 
     }
 ```
-```
+
 MultipartFile
+```
 @GetMapping("/order/file")
     public String file(List<MultipartFile> file,MultipartFile[] files,Collection<MultipartFile> files,MultipartFile file){
 
@@ -170,13 +173,16 @@ MultipartFile
     public String file(@RequestBody User user){
 
     }
-```
+
 HttpServletRequest
+```
 @GetMapping("/order/request")
     public String file(HttpServletRequest request){
 
     }
+```
 HttpServletResponse
+```
  @GetMapping("/order/request")
     public String file(HttpServletResponse response){
 
@@ -187,7 +193,7 @@ HttpServletResponse
 以上所有参数
 
 可在异常解析器上支持的参数
-``
+
 1.异常类
 
 2.HttpServletRequest
@@ -195,11 +201,11 @@ HttpServletResponse
 3.HttpServletResponse
 
 4.HandlerMethod
-``
+
 返回值处理器
-``
+
 @ResponseBody 方法级别
 
 @RestController 类级别
-``
+
 只支持返回json 主要核心功能需要
