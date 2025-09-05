@@ -8,19 +8,18 @@
 
 Tomcat
 1.打包后引入依赖
-> 
 		 <dependency>
             <groupId>org.example</groupId>
             <artifactId>spring-mvc-demo</artifactId>
             <version>1.0.0</version>
         </dependency>
 2.创建读取bean类
-> @ComponentScan("org.example")
+@ComponentScan("org.example")
 public class AppConfig {
 }
 
 3.继承AbstractAnnotationConfigDispatcherServletInitializer 并配置
-> public class Quick extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class Quick extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{AppConfig.class};
